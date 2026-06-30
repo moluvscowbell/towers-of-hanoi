@@ -1,7 +1,15 @@
 package marycrimmins;
 
+/**
+ * @author Mary Crimmins
+ *
+ * HanoiTower represents the data structure which stores disc and rod information to be used
+ * in the Towers of Hanoi simulation.
+ */
 public class HanoiTower {
+    //array which represents a tower
     private int discStack[];
+    //counter to track the number of discs on a rod
     private int discsOn;
     private String rodName;
 
@@ -19,8 +27,8 @@ public class HanoiTower {
 
     /**
      * Adds new discs to the discs array
-     * @param newDisc the disc number to be added to the tower
-     * @throws TowerOverflowException if the tower is full
+     * @param newDisc the disc number to be added to the rod
+     * @throws TowerOverflowException if the rod is full
      * @throws IllegalPushException if the disc being added is larger than the disc on top
      */
     public void push(int newDisc) throws TowerOverflowException, IllegalPushException{
@@ -37,12 +45,31 @@ public class HanoiTower {
         discsOn++;
         this.setNumOn(discsOn);
         this.setDiscStack(discStack);
-        }
+    }
     
+    /**
+     * Removes the top disc from a rod
+     * @return
+     * @throws EmptyTowerException
+     */
+    public int pop() throws EmptyTowerException{
+        int discsOn = this.getNumOn;
+        if (discsOn == 0){
+            throw new EmptyTowerException;
+        }
+        
+        int[] discStack = this.getDiscStack();
+        int topDisk = discStack[discsOn - 1];
+        discStack[discsOn - 1] = 0;
+        discsOn--;
+        this.setNumOn(discsOn);
+
+        return topDisk;
+    }
 
 
 /**
- * Overrides toString to return the tower object name annd the disc numbers from the bottom to the top.
+ * Overrides toString to return the tower object name and the disc numbers from the bottom to the top.
  * @return tower name and disc numbers
  */
     @Override 
@@ -55,7 +82,7 @@ public class HanoiTower {
     }
 
 /**
- * Accessor method for the number of discs on the tower
+ * Accessor method for the number of discs on a rod
  * @return number of discs on tower
  */
     public int getNumOn(){
