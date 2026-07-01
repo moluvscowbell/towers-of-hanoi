@@ -1,4 +1,4 @@
-package marycrimmins;
+package TowersOfHanoi;
 
 public class TowerOverflowException extends Exception{
 /**

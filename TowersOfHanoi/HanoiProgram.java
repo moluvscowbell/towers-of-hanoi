@@ -1,4 +1,4 @@
-package marycrimmins;
+package TowersOfHanoi;
 import java.util.Scanner;
 
 public class HanoiProgram {
