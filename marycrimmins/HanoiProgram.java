@@ -14,9 +14,21 @@ public class HanoiProgram {
             int numDiscs = keyboard.nextInt();
             System.out.println("");
 
+            HanoiTower first = new HanoiTower(numDiscs, "A");
+            HanoiTower second = new HanoiTower(numDiscs, "B");
+            HanoiTower third = new HanoiTower(numDiscs, "C");
+
+            HanoiSimulation newSim = new HanoiSimulation(numDiscs);
+            newSim.runSim();
+
+            System.out.println("Would you like to run another simulation? Y/N");
+            ans = keyboard.next();
         }
+        while (ans.equalsIgnoreCase("Y"));
+
+        System.out.println("Thank you for using the Towers of Hanoi simulator.");
         
-        HanoiSimulation simulation = new HanoiSimulation();
+        keyboard.close();
 
     }
 }

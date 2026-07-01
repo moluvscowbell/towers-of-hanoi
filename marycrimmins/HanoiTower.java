@@ -53,9 +53,9 @@ public class HanoiTower {
      * @throws EmptyTowerException
      */
     public int pop() throws EmptyTowerException{
-        int discsOn = this.getNumOn;
+        int discsOn = this.getNumOn();
         if (discsOn == 0){
-            throw new EmptyTowerException;
+            throw new EmptyTowerException();
         }
         
         int[] discStack = this.getDiscStack();
